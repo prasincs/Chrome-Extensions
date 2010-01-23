@@ -1,6 +1,6 @@
 {
 	"name" : "Facebook Cleaner",
-	"version" : "1.0",
+	"version" : "1.2.2",
 	"description" : "cleans up stuff from facebook's page",
 	"icons" : { "48" : "erase_48.png",
 		  "128": "erase_128.png" },
@@ -13,7 +13,7 @@
 		"https://*.facebook.com/"
 	],
 	"content_scripts": [{
-		"matches" : ["http://*.facebook.com/*", "https://*.facebook.com/"],
+		"matches" : ["http://*.facebook.com/*", "https://*.facebook.com/*"],
 		"js" : ["fbcleaner.js"]
 	}]
 }
