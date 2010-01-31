@@ -2,12 +2,15 @@
 body {
     min-width:357px;
     overflow-x:hidden;
-    font:Arial;
+    font-family:arial,sans-serif;
+
 }
 
 
     .notice {
-        background:red;
+        background:#3B5998;
+        padding-top:5px;
+        padding-bottom:5px;
         color:white;
     }
 </style>
@@ -41,8 +44,6 @@ function saveOptions(){
     <input type="checkbox" name="hide_homeAdBox"/> Hide  "Sponsored ads" on home page <br/>
     <input type="checkbox" name="hide_connectBox"/> Hide Connect Box <br/>
     <input type="checkbox" name="hide_sidebarAds"/> Hide ads on sidebar <br/>
-<br/>
-<button onClick="saveOptions()">Save</button>
+<button onClick="saveOptions()">Apply</button>
 </form>
-<p class="notice">You will need to refresh the page for this to take effect</p>
 </body>

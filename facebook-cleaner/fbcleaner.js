@@ -14,28 +14,34 @@ function removeItems() {
     var connectBox = document.getElementById('pagelet_connectbox');
     var sidebarAds = document.getElementById('sidebar_ads');
 
+
+
+
     chrome.extension.sendRequest (
     {
       "type" : "config",
-      "keys" : ["hide_suggestionBox", "hide_homeAdBox", "hide_connectBox", "hide_sidebarAds"]
+      "keys" : ["first_run", "hide_suggestionBox", "hide_homeAdBox", "hide_connectBox", "hide_sidebarAds"]
     },
     function (data) {
-       if (data["hide_suggestionBox"]==="true") {
-        remove(suggestionBox);
-        }
-       if (data["hide_homeAdBox"]==="true") {
-        remove(homeAdBox);
-        }
-        if (data["hide_connectBox"]==="true") {
-            remove(connectBox);
-        }
-        if (data["hide_sidebarAds"]==="true") {
-            if (sidebarAds)
-                sidebarAds.style.visibility= 'hidden';
-        }else {
-            if (sidebarAds)
-                sidebarAds.style.visibility= 'visible';
-        }
+	
+	
+	       if (data["hide_suggestionBox"]==="true") {
+		remove(suggestionBox);
+		}
+	       if (data["hide_homeAdBox"]==="true") {
+		remove(homeAdBox);
+		}
+		if (data["hide_connectBox"]==="true") {
+		    remove(connectBox);
+		}
+		if (data["hide_sidebarAds"]==="true") {
+		    if (sidebarAds)
+		        sidebarAds.style.visibility= 'hidden';
+		}else {
+		    if (sidebarAds)
+		        sidebarAds.style.visibility= 'visible';
+		}
+	
     });
     
 }
