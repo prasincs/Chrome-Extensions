@@ -1,0 +1,48 @@
+<style>
+body {
+    min-width:357px;
+    overflow-x:hidden;
+    font:Arial;
+}
+
+
+    .notice {
+        background:red;
+        color:white;
+    }
+</style>
+<script type="text/javascript" src="fbcleaner.js"/>
+<script type="text/javascript">
+function initialize(){
+    document.optionsform.hide_suggestionBox.checked=eval(localStorage.hide_suggestionBox);
+    document.optionsform.hide_homeAdBox.checked=eval(localStorage.hide_homeAdBox);
+    document.optionsform.hide_connectBox.checked=eval(localStorage.hide_connectBox);
+    document.optionsform.hide_sidebarAds.checked=eval(localStorage.hide_sidebarAds);
+
+}
+
+function saveOptions(){
+     if (!localStorage) {
+             alert("Error local storage is unavailable.");
+             window.close();
+           }
+     localStorage.hide_suggestionBox = document.optionsform.hide_suggestionBox.checked;
+     localStorage.hide_homeAdBox = document.optionsform.hide_homeAdBox.checked;
+    localStorage.hide_connectBox = document.optionsform.hide_connectBox.checked;
+    localStorage.hide_sidebarAds = document.optionsform.hide_sidebarAds.checked;
+    chrome.extension.sendRequest( { msg : "refresh_tab",  href:location.href});
+
+    window.close();
+}
+</script>
+<body onload="initialize()">
+<form name="optionsform">
+    <input type="checkbox" name="hide_suggestionBox"/> Hide Suggestion Box <br/>
+    <input type="checkbox" name="hide_homeAdBox"/> Hide  "Sponsored ads" on home page <br/>
+    <input type="checkbox" name="hide_connectBox"/> Hide Connect Box <br/>
+    <input type="checkbox" name="hide_sidebarAds"/> Hide ads on sidebar <br/>
+<br/>
+<button onClick="saveOptions()">Save</button>
+</form>
+<p class="notice">You will need to refresh the page for this to take effect</p>
+</body>

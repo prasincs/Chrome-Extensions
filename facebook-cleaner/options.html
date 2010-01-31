@@ -1,0 +1,30 @@
+<style>
+body {
+    min-width:357px;
+    overflow-x:hidden;
+    }
+
+</style>
+<script type="text/javascript" src="fbcleaner.js"/>
+<script type="text/javascript">
+function initialize(){
+document.optionsform.hide_suggestionBox.checked=eval(localStorage.getItem('hide_suggestionBox'));
+}
+
+function saveOptions(){
+     if (!localStorage) {
+             alert("Error local storage is unavailable.");
+             window.close();
+           }
+    localStorage.hide_suggestionBox = document.optionsform.hide_suggestionBox.checked?true:false;
+    window.close();
+}
+</script>
+<body onload="initialize()">
+<form name="optionsform">
+<input type="checkbox" name="hide_suggestionBox"/> Hide Suggestion Box
+<br/>
+<button onClick="saveOptions()">Save</button>
+<br/>
+</form>
+</body>
